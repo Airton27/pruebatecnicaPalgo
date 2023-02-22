@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+</head>
+<body background="/images/banner-img.jpg">
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/cursos/guardar}" th:object="${c}" method="post">
+				<div class="col-sm-12">
+					<label class="form-label">Id: </label> <input type="text"
+						th:field="*{codigoacurso}" class="form-control"></input>
+				</div>
+
+
+
+				<div class="col-sm-12">
+					<label class="form-label">Nombre: </label> <input type="text"
+						th:field="*{nombres}" class="form-control"
+						placeholder="Digite su name" required="required"
+						pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s 0-9]+"
+						oninvalid="setCustomValidity('Debe ingresar el nombre del curso')"
+						onchange="try{setCustomValidity('')}catch(e){}"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">descripcion: </label> <input type="text"
+						th:field="*{apellidos}" class="form-control"
+						placeholder="Digite su level" required="required" pattern="[0-9]"
+						oninvalid="setCustomValidity('Debe ingresar su descripcion')"
+						onchange="try{setCustomValidity('')}catch(e){}"></input>
+				</div>
+
+
+
+				<div class="col-sm-12">
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+				</div>
+
+
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

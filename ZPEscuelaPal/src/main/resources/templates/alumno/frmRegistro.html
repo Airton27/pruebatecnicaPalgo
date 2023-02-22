@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+</head>
+<body background="/images/banner-img.jpg">
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/alumnos/guardar}" th:object="${a}" method="post">
+				<div class="col-sm-12">
+					<label class="form-label">Id: </label> <input type="text"
+						th:field="*{codigoalum}" class="form-control"></input>
+				</div>
+
+
+
+				<div class="col-sm-12">
+					<label class="form-label">Nombres: </label> <input type="text"
+						th:field="*{nombres}" class="form-control"
+						placeholder="Digite su name" required="required"
+						pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s 0-9]+"
+						oninvalid="setCustomValidity('Debe ingresar su nombre')"
+						onchange="try{setCustomValidity('')}catch(e){}"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Apellidos: </label> <input type="text"
+						th:field="*{apellidos}" class="form-control"
+						placeholder="Digite su apellido" required="required"
+						pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s 0-9]+"
+						oninvalid="setCustomValidity('Debe ingresar su nombre')"
+						onchange="try{setCustomValidity('')}catch(e){}"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Nacimie Date: </label> <input type="date"
+						th:field="*{fechanacimiento}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Sexo: </label> <input type="text"
+						th:field="*{sexo}" class="form-control"
+						placeholder="Digite su name" required="required"
+						pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s 0-9]+"
+						oninvalid="setCustomValidity('Debe ingresar su sexo')"
+						onchange="try{setCustomValidity('')}catch(e){}"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

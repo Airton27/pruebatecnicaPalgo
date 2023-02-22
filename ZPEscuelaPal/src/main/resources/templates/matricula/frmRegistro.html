@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Registrar talla</title>
+</head>
+<body background="/images/banner-img.jpg">
+	<header th:replace="master/master :: header"></header>
+	<br>
+	<div>
+		<h1 align="center">Registrar Matricula</h1>
+	</div>
+	<br>
+	<div class="container">
+		<div>
+			<form th:action="@{/notas/guardar}" th:object="${m}" method="post">
+				-->
+				<div class="col-sm-5">
+					<label class="form-label">Alumno: </label> <select
+						name="selectPerson" class="form-control"
+						th:field="*{alumno.codigoalum}">
+						<option th:each="a: ${listaAlumnos}" th:value="${a.codigoalum}"
+							th:text="${a.nombres}"
+							th:selected="(${a.codigoalum}==*{alumno.codigoalum})"></option>
+					</select>
+				</div>
+				<div class="col-sm-5">
+					<label class="form-label">Cursos: </label> <select
+						name="selectPerson" class="form-control"
+						th:field="*{curso.codigocurso}">
+						<option th:each="c: ${listaCursos}" th:value="${c.codigocurso}"
+							th:text="${c.nombre}"
+							th:selected="(${c.codigocurso}==*{curso.codigocurso})"></option>
+					</select>
+				</div>
+
+				<div class="col-sm-5">
+					<label class="form-label">PC1:</label> <input type="text"
+						th:field="*{Pc1}" placeholder="Digite la nota de la pc1:"
+						class="form-control" pattern="[0-9]+(\.[0-9][0-9]?)?"
+						required="required"></input>
+				</div>
+
+				<div class="col-sm-5">
+					<label class="form-label">PC2:</label> <input type="text"
+						th:field="*{Pc2}" placeholder="Digite la nota de la pc2:"
+						class="form-control" pattern="[0-9]+(\.[0-9][0-9]?)?"
+						required="required"></input>
+				</div>
+
+				<div class="col-sm-5">
+					<label class="form-label">PC1:</label> <input type="text"
+						th:field="*{Pc3}" placeholder="Digite la nota de la pc3:"
+						class="form-control" pattern="[0-9]+(\.[0-9][0-9]?)?"
+						required="required"></input>
+				</div>
+
+				<div class="col-sm-5">
+					<label class="form-label">Parcial:</label> <input type="text"
+						th:field="*{Parcial}" placeholder="Digite la nota del parcial:"
+						class="form-control" pattern="[0-9]+(\.[0-9][0-9]?)?"
+						required="required"></input>
+				</div>
+
+				<div class="col-sm-5">
+					<label class="form-label">Final:</label> <input type="text"
+						th:field="*{Final}" placeholder="Digite la nota del final:"
+						class="form-control" pattern="[0-9]+(\.[0-9][0-9]?)?"
+						required="required"></input>
+				</div>
+				<br>
+				<div class="col-sm-5">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+
+			</form>
+		</div>
+
+	</div>
+	<br>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+</head>
+<body background="/images/banner-img.jpg">
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<h1 align="center">lista Curso</h1>
+		</div>
+		<div align="center">
+			<a class="boton" th:href="@{/cursos/nuevo}">Nuevo</a>
+		</div>
+		<div>
+			<div class="table-responsive"></div>
+
+			<table class="table table-white">
+
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Descripcion</th>
+						<th scope="col">Vlidit</th>
+
+						<th>Operación</th>
+						<th>Lista</th>
+
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr th:each="curso : ${listaCursos}">
+						<td th:text="${curso.codigocurso}"></td>
+						<td th:text="${curso.nombre}"></td>
+
+						<td th:text="${curso.descripcion}"></td>
+
+						<td><a th:href="@{/secciones/nuevo}"> Nuevo secction </a></td>
+						<td><a th:href="@{/secciones/listar}"> lista secction </a></td>
+
+
+
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

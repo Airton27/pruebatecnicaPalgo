@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Listar Notas</title>
+</head>
+<body background="/images/banner-img.jpg">
+	<header th:replace="master/master :: header"></header>
+	<br>
+	<div>
+		<h1 align="center">Listar Notas</h1>
+	</div>
+	<br>
+	<div class="container text-center">
+		<table class="table table-primary">
+			<thead class="table-dark">
+				<tr>
+					<th>ID</th>
+					<th>Alumno</th>
+					<th>Curso</th>
+					<th>PC1</th>
+					<th>PC2</th>
+					<th>PC3</th>
+					<th>PARCIAL</th>
+					<th>FINAL</th>
+
+					<th>PonderadoPC</th>
+					<th>PonderadoTOTAL</th>
+
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="m : ${listaNotas}">
+					<td th:text="${m.idNotas}"></td>
+					<td th:text="${m.alumno.nombres}"></td>
+					<td th:text="${m.curso.nombre}"></td>
+					<td th:text="${m.Pc1}"></td>
+					<td th:text="${m.Pc2}"></td>
+					<td th:text="${m.Pc3}"></td>
+					<td th:text="${m.Parcial}"></td>
+					<td th:text="${m.Final}"></td>
+
+					<td th:text="${(m.Pc1 +m.Pc2 + m.Pc3)/3}"></td>
+					<td th:text="${(m.Final + m.Parcial + m.Final)/3)}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<footer th:replace="master/master :: footer"></footer>
+</body>
+</html>

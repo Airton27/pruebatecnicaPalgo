@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+</head>
+<body background="/images/banner-img.jpg">
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<h1 align="center">lista Alumnos</h1>
+		</div>
+		<div align="center">
+			<a class="boton" th:href="@{/alumnos/nuevo}">Nuevo</a>
+		</div>
+		<div>
+			<div class="table-responsive"></div>
+
+			<table class="table table-white">
+
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nombres</th>
+						<th scope="col">Apellidos</th>
+						<th scope="col">FechadeNacimiento</th>
+						<th scope="col">Sexo</th>
+						<th scope="col">Creation date</th>
+						<th scope="col">Vlidit</th>
+
+						<th>Operación</th>
+						<th>Lista</th>
+
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr th:each="alumno : ${listaAlumnos}">
+						<td th:text="${alumno.codigoalum}"></td>
+						<td th:text="${alumno.nombres}"></td>
+
+						<td th:text="${alumno.apellidos}"></td>
+						<td
+							th:text="${#dates.format(alumno.fechanacimiento, 'dd/MM/yyyy')}"></td>
+						<td th:text="${alumno.sexo}"></td>
+
+
+
+
+						<td><a th:href="@{/secciones/nuevo}"> Nuevo secction </a></td>
+						<td><a th:href="@{/secciones/listar}"> lista secction </a></td>
+						<td><a class="btn btn-primary"
+							th:href="@{'/alumnos/irmodificar/'+${alumno.codigoalum}}">Editar</a>
+							&nbsp; <a class="btn btn-danger"
+							th:href="@{/alumnos/eliminar?id=}+${alumno.codigoalum}">Eliminar</a></td>
+
+
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
